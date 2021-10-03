@@ -63,7 +63,7 @@ def get_current_time() -> str:
         str -> hh_mm
     """
     now_datetime = datetime.datetime.now()
-    return f"{now_datetime.hour}_{now_datetime.minute}"
+    return f"{str(now_datetime.hour).zfill(2)}_{str(now_datetime.minute).zfill(2)}"
 
 
 if __name__ == '__main__':
