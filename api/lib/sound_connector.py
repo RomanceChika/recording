@@ -32,9 +32,3 @@ class SoundConnector(object):
         with output_path.open(mode='wb') as f:
             full_sound.export(f, format='mp3')
 
-if __name__ == '__main__':
-    from file_selector import FileSelector
-    fs = FileSelector(4)
-    sf_list = fs.select_files()
-    print(sf_list)
-    SoundConnector.connect_sound(sf_list, 'testconcat')
