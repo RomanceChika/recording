@@ -33,6 +33,9 @@ class FileSelector(object):
         time_list = self.get_time_list(self.current_time, self.minute)
         file_list = list()
         current_time_data_path = PathManager.data_path() / f"{time_list[-1]}.mp3"
+        # 1日前の現在時刻ファイルを判定に使うと音声がおかしくなるので一旦削除
+        if os.path.exists(str(current_time_data_path)):
+            os.remove(str(current_time_data_path))
         count = 0
         # 現在時刻分が生成されるまで待つ
         while not os.path.exists((str(current_time_data_path))):
